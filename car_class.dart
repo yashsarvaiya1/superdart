@@ -6,14 +6,10 @@ class Car {
   Car({required this.brand, required this.year, this.milage});
 
   bool get isOld => year < 2015;
-  String get description =>
-      "$brand from $year with ${milage == null ? 0 : milage}km";
+  String get description => "$brand from $year with ${milage ?? 0}km";
 
   void drive(int km) {
-    if (milage == null) {
-      milage = km;
-    }
-    milage = milage! + km;
+    milage = (milage ?? 0) + km;
   }
 }
 
