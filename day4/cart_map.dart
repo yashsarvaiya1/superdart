@@ -30,8 +30,15 @@ void main() {
   mycart.add({'item': "sharpner", 'qnt': 5});
   mycart.addAll([
     {'item': "color", 'qnt': 2},
-    {'item': "box", 'qnt': 1}
+    {'item': "box", 'qnt': 1},
   ]);
+
+  //foreach for direct manipulation where map create another instance.
+  mycart.forEach((c) {
+    if (c['qnt'] < 5) {
+      c['qnt'] = c['qnt'] + 2;
+    }
+  });
 
   storage['cart'] = mycart;
   print(storage['cart']);
